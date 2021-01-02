@@ -1,0 +1,21 @@
+{
+  "name": "DoOrDoNot",
+  "version": "1.0.0",
+  "description": "Do or Do Not (DoDN) is a desktop application to keep track of your to-do list. A user can add a to-do item with a name, short description, start date, deadline and a state.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HermansCedric/DoOrDoNot.git"
+  },
+  "keywords": [],
+  "author": "Cedric Hermans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HermansCedric/DoOrDoNot/issues"
+  },
+  "homepage": "https://github.com/HermansCedric/DoOrDoNot#readme"
+}
