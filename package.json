@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/HermansCedric/DoOrDoNot/issues"
   },
-  "homepage": "https://github.com/HermansCedric/DoOrDoNot#readme"
+  "homepage": "https://github.com/HermansCedric/DoOrDoNot#readme",
+  "dependencies": {
+    "electron-store": "^6.0.1"
+  }
 }
