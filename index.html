@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <title>Do or Do Not</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script src="item.js"></script>
+    <script src="dataStore.js"></script>
 </head>
 <body style="background: white;">
     <h1>Do or Do Not</h1>
     <h2>There is no try</h2>
+    <ul>
+        <li><script>document.write(dataStore.get(item1.name).name);</script></li>
+        <li><script>document.write(dataStore.get(item1.name).description);</script></li>
+        <li><script>document.write(dataStore.get(item1.name).startDate);</script></li>
+        <li><script>document.write(dataStore.get(item1.name).deadline);</script></li>
+        <li><script>document.write(dataStore.get(item1.name).state);</script></li>
+    </ul>
 </body>
 </html>
