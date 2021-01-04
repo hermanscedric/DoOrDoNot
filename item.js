@@ -7,3 +7,5 @@ class Item {
         this.state = state;
     }
 }
+
+module.exports = Item;
