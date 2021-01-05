@@ -1,16 +1,16 @@
 const ipcRenderer = require('electron').ipcRenderer
-const dataStore = require('./dataStore.js');
 
 var item = document.getElementById('item');
 
-item.innerHTML = "<ul>" +
-    "<li>" + dataStore.get("Make app").name + "</li>" +
-    "<li>" + dataStore.get("Make app").description + "</li>" +
-    "<li>" + dataStore.get("Make app").startDate + "</li>" +
-    "<li>" + dataStore.get("Make app").deadline + "</li>" +
-    "<li>" + dataStore.get("Make app").state + "</li>" +
-    "</ul>";
-
-    ipcRenderer.on('test', (event, test) => {
-        console.log(test);
-    })
+ipcRenderer.on('items', (event, items) => {
+    var response = JSON.parse(items);
+    for (var i = 0; i < response.items.length; i++) {
+        item.innerHTML += "<ul>" +
+        "<li>" + response.items[i].name + "</li>" +
+        "<li>" + response.items[i].description + "</li>" +
+        "<li>" + response.items[i].startDate + "</li>" +
+        "<li>" + response.items[i].deadline + "</li>" +
+        "<li>" + response.items[i].state + "</li>" +
+        "</ul>";
+    }
+})
