@@ -1,5 +1,6 @@
 const { app,
-    BrowserWindow } = require('electron')
+    BrowserWindow,
+    ipcMain } = require('electron')
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -12,6 +13,10 @@ function createWindow() {
     })
 
     win.loadFile('index.html')
+
+    win.once('ready-to-show', () => {
+        win.webContents.send('test', "this is a test")
+    })
 }
 
 app.whenReady().then(createWindow)
