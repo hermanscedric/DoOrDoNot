@@ -5,28 +5,31 @@
     <meta charset="UTF-8">
     <title>Do or Do Not</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="index.css" />
 </head>
 
-<body style="background: white;">
+<body>
     <h1>Do or Do Not</h1>
     <h2>There is no try</h2>
-    <div id="item"></div>
-    <div id="form">
-        <form>
-            <label for="name">Name</label>
-            <input name="name" type="text"><br>
+    <div class="container">
+        <div id="item"></div>
+        <div id="form">
+            <form>
+                <label for="name">Name</label>
+                <input name="name" type="text"><br>
 
-            <label for="description">Description</label>
-            <input name="description" type="text"><br>
+                <label for="description">Description</label>
+                <input name="description" type="text"><br>
 
-            <label for="deadline">Deadline</label>
-            <input name="deadline" type="text"><br>
+                <label for="deadline">Deadline</label>
+                <input name="deadline" type="text"><br>
 
-            <label for="state">State</label>
-            <input name="state" type="text"><br>
+                <label for="state">State</label>
+                <input name="state" type="text"><br>
 
-            <input type="submit" value="Add item">
-        </form>
+                <input type="submit" value="Add item">
+            </form>
+        </div>
     </div>
     <script src="index.js"></script>
 </body>
