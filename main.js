@@ -7,12 +7,12 @@ const DataStore = require('./dataStore.js');
 const items = new DataStore();
 
 // Add those three items once to populate the itemsList. This is only for testing purpose, will be removed soon.
-var item1 = new Item("Make this app", "Electron app", "April 2021", "in progress");
+/*var item1 = new Item("Make this app", "Electron app", "April 2021", "in progress");
 var item2 = new Item("Make website", "HTML/CSS", "June 2021", "not started");
 var item3 = new Item("Make Github account", "Github", "January 2021", "completed");
 items.addItem(item1)
 items.addItem(item2)
-items.addItem(item3)
+items.addItem(item3)*/
 
 function createWindow() {
     const win = new BrowserWindow({
