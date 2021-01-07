@@ -1,4 +1,5 @@
 const ipcRenderer = require('electron').ipcRenderer
+const Item = require('./item.js');
 
 var item = document.getElementById('item');
 
@@ -6,7 +7,15 @@ var form = document.getElementById('itemForm');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    console.log("added item");
+
+    let name = event.target[0];
+    let description = event.target[1];
+    let deadline = event.target[2];
+    let state = event.target[3];
+
+    let newItem = new Item(name, description, deadline, state);
+    
+    console.log(newItem);
 })
 
 ipcRenderer.on('items', (event, items) => {
