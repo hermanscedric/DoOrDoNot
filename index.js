@@ -8,17 +8,18 @@ var form = document.getElementById('itemForm');
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    let name = event.target[0];
-    let description = event.target[1];
-    let deadline = event.target[2];
-    let state = event.target[3];
+    let name = event.target[0].value;
+    let description = event.target[1].value;
+    let deadline = event.target[2].value;
+    let state = event.target[3].value;
 
     let newItem = new Item(name, description, deadline, state);
-    
-    console.log(newItem);
+
+    ipcRenderer.send('addItem', JSON.stringify(newItem));
 })
 
 ipcRenderer.on('items', (event, items) => {
+    item.innerHTML = "";
     var response = JSON.parse(items);
     for (var i = 0; i < response.items.length; i++) {
         item.innerHTML += "<ul>" +

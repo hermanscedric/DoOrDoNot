@@ -5,6 +5,7 @@ const Item = require('./item.js');
 const DataStore = require('./dataStore.js');
 
 const items = new DataStore();
+let win;
 
 // Add those three items once to populate the itemsList. This is only for testing purpose, will be removed soon.
 /*var item1 = new Item("Make this app", "Electron app", "April 2021", "in progress");
@@ -15,7 +16,7 @@ items.addItem(item2)
 items.addItem(item3)*/
 
 function createWindow() {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         width: 800,
         height: 600,
         webPreferences: {
@@ -30,6 +31,12 @@ function createWindow() {
         win.webContents.send('items', JSON.stringify(items))
     })
 }
+
+ipcMain.on('addItem', (event, newItem) => {
+    let newItemJSON = JSON.parse(newItem)
+    items.addItem(newItemJSON)
+    win.webContents.send('items', JSON.stringify(items))
+})
 
 app.whenReady().then(createWindow)
 
