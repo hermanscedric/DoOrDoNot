@@ -22,12 +22,17 @@ ipcRenderer.on('items', (event, items) => {
     item.innerHTML = "";
     var response = JSON.parse(items);
     for (var i = 0; i < response.items.length; i++) {
-        item.innerHTML += "<ul>" +
-        "<li>" + response.items[i].name + "</li>" +
-        "<li>" + response.items[i].description + "</li>" +
-        "<li>" + response.items[i].startDate + "</li>" +
-        "<li>" + response.items[i].deadline + "</li>" +
-        "<li>" + response.items[i].state + "</li>" +
-        "</ul>";
+        item.innerHTML += "<div class=\"item\">" +
+            "<p id=\"header\">" +
+            "<span>" + response.items[i].name + "</span>" +
+            "<button>Delete</button>" +
+            "<button>Edit</button>" +
+            "</p>" +
+            "<p id=\"description\">" + response.items[i].description + "</p>" +
+            "<p id=\"dates\">" +
+            "<span>" + response.items[i].startDate + "</span>" +
+            "<span>" + response.items[i].deadline + "</span>" +
+            "<p id=\"state\">" + response.items[i].state + "</p>" +
+            "</div>";
     }
 })
