@@ -86,7 +86,7 @@ button {
     padding: 0 10%;
 }
 
-#form input[type=text] {
+#form input {
     box-sizing: border-box;
     width: 100%;
     margin: 8px 0;
