@@ -86,7 +86,7 @@ button {
     padding: 0 10%;
 }
 
-#form input {
+#form input, select {
     box-sizing: border-box;
     width: 100%;
     margin: 8px 0;
