@@ -24,14 +24,14 @@ ipcRenderer.on('items', (event, items) => {
     for (var i = 0; i < response.items.length; i++) {
         item.innerHTML += "<div class=\"item\">" +
             "<p id=\"header\">" +
-            "<span>" + response.items[i].name + "</span>" +
+            "<span><strong>" + response.items[i].name + "</strong></span>" +
             "<button>Delete</button>" +
             "<button>Edit</button>" +
             "</p>" +
             "<p id=\"description\">" + response.items[i].description + "</p>" +
             "<p id=\"dates\">" +
-            "<span>" + response.items[i].startDate + "</span>" +
-            "<span>" + response.items[i].deadline + "</span>" +
+            "<span>Started: " + response.items[i].startDate + "</span>" +
+            "<span>Deadline: " + response.items[i].deadline + "</span>" +
             "<p id=\"state\">" + response.items[i].state + "</p>" +
             "</div>";
     }
