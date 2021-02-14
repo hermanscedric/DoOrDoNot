@@ -22,7 +22,15 @@ ipcRenderer.on('items', (event, items) => {
     item.innerHTML = "";
     var response = JSON.parse(items);
     for (var i = 0; i < response.items.length; i++) {
-        item.innerHTML += "<div class=\"item\">" +
+        let target = "";
+
+        if (response.items[i].state == 'In progress') {
+            target += "<div class=\"item\" state=\"InProgress\">";
+        } else {
+            target += "<div class=\"item\" state=\"Completed\">";
+        }
+
+        item.innerHTML += target +
             "<p id=\"header\">" +
             "<span><strong>" + response.items[i].name + "</strong></span>" +
             "<button>Delete</button>" +
