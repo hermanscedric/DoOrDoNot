@@ -5,6 +5,10 @@ var item = document.getElementById('item');
 
 var form = document.getElementById('itemForm');
 
+function editItem(name) {
+    console.log(name);
+}
+
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -34,7 +38,7 @@ ipcRenderer.on('items', (event, items) => {
             "<p id=\"header\">" +
             "<span><strong>" + response.items[i].name + "</strong></span>" +
             "<button>Delete</button>" +
-            "<button>Edit</button>" +
+            "<button onClick=\"editItem('" + response.items[i].name + "')\">Edit</button>" +
             "</p>" +
             "<p id=\"description\">" + response.items[i].description + "</p>" +
             "<p id=\"dates\">" +
