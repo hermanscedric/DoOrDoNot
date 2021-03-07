@@ -38,6 +38,10 @@ ipcMain.on('addItem', (event, newItem) => {
     win.webContents.send('items', JSON.stringify(items))
 })
 
+ipcMain.on('searchItem', (event, name) => {
+    console.log(items.searchItem(name));
+})
+
 app.whenReady().then(createWindow)
 
 app.on('window-all-closed', () => {

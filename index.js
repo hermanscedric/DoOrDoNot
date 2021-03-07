@@ -6,7 +6,7 @@ var item = document.getElementById('item');
 var form = document.getElementById('itemForm');
 
 function editItem(name) {
-    console.log(name);
+    ipcRenderer.send('searchItem', name);
 }
 
 form.addEventListener('submit', (event) => {

@@ -14,6 +14,10 @@ class DataStore extends Store {
         this.items = [ ...this.items, item]
         this.set('items', this.items)
     }
+
+    searchItem(name) {
+        return this.items.find(item => item.name === name);
+    }
 }
 
 module.exports = DataStore;
