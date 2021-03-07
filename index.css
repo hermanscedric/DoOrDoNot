@@ -75,25 +75,25 @@ button {
     margin-top: 3px;
 }
 
-#description {
+.description {
     margin: 0;
     padding: 5px;
     height: 40%;
 }
 
-#dates {
+.dates {
     margin: 0;
     padding: 5px;
     display: flex;
     height: 20%;
 }
 
-#dates span {
+.dates span {
     width: 50%;
     text-align: center;
 }
 
-#state {
+.state {
     margin: 0;
     padding: 5px;
     text-align: center;

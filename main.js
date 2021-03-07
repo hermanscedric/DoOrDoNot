@@ -39,7 +39,8 @@ ipcMain.on('addItem', (event, newItem) => {
 })
 
 ipcMain.on('searchItem', (event, name) => {
-    console.log(items.searchItem(name));
+    let item = items.searchItem(name)
+    win.webContents.send('editItem', JSON.stringify(item))
 })
 
 app.whenReady().then(createWindow)

@@ -22,6 +22,18 @@ form.addEventListener('submit', (event) => {
     ipcRenderer.send('addItem', JSON.stringify(newItem));
 })
 
+ipcRenderer.on('editItem', (event, item) => {
+    var response = JSON.parse(item);
+    document.getElementById('name').value = response.name;
+    document.getElementById('description').value = response.description;
+    /*let date = new Date(Date.parse("01/01/2021"));
+    console.log(date);
+    document.getElementById('deadline').value = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDay() + 1);*/
+    document.getElementById('deadline').value = response.deadline;
+    document.getElementById('state').value = response.state;
+
+})
+
 ipcRenderer.on('items', (event, items) => {
     item.innerHTML = "";
     var response = JSON.parse(items);
@@ -40,11 +52,11 @@ ipcRenderer.on('items', (event, items) => {
             "<button>Delete</button>" +
             "<button onClick=\"editItem('" + response.items[i].name + "')\">Edit</button>" +
             "</p>" +
-            "<p id=\"description\">" + response.items[i].description + "</p>" +
-            "<p id=\"dates\">" +
+            "<p class=\"description\">" + response.items[i].description + "</p>" +
+            "<p class=\"dates\">" +
             "<span>Started: " + response.items[i].startDate + "</span>" +
             "<span>Deadline: " + response.items[i].deadline + "</span>" +
-            "<p id=\"state\">" + response.items[i].state + "</p>" +
+            "<p class=\"state\">" + response.items[i].state + "</p>" +
             "</div>";
     }
 })

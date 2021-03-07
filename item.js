@@ -3,7 +3,7 @@ class Item {
         this.name = name;
         this.description = description;
         this.startDate = new Date().toLocaleDateString();
-        this.deadline = new Date(deadline).toLocaleDateString();
+        this.deadline = deadline;
         this.state = state;
     }
 }
