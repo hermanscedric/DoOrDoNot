@@ -26,9 +26,6 @@ ipcRenderer.on('editItem', (event, item) => {
     var response = JSON.parse(item);
     document.getElementById('name').value = response.name;
     document.getElementById('description').value = response.description;
-    /*let date = new Date(Date.parse("01/01/2021"));
-    console.log(date);
-    document.getElementById('deadline').value = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDay() + 1);*/
     document.getElementById('deadline').value = response.deadline;
     document.getElementById('state').value = response.state;
 
