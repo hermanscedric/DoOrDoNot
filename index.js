@@ -12,14 +12,24 @@ function editItem(name) {
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    let name = event.target[0].value;
-    let description = event.target[1].value;
-    let deadline = event.target[2].value;
-    let state = event.target[3].value;
+    if (document.getElementById('formButton').innerHTML === "Add item") {
 
-    let newItem = new Item(name, description, deadline, state);
+        let name = event.target[0].value;
+        let description = event.target[1].value;
+        let deadline = event.target[2].value;
+        let state = event.target[3].value;
 
-    ipcRenderer.send('addItem', JSON.stringify(newItem));
+        let newItem = new Item(name, description, deadline, state);
+
+        ipcRenderer.send('addItem', JSON.stringify(newItem));
+    } else {
+        event.target[0].value = "";
+        event.target[1].value = "";
+        event.target[2].value = "";
+        event.target[3].value = "";
+
+        document.getElementById('formButton').innerHTML = "Add item";
+    }
 })
 
 ipcRenderer.on('editItem', (event, item) => {
@@ -28,6 +38,8 @@ ipcRenderer.on('editItem', (event, item) => {
     document.getElementById('description').value = response.description;
     document.getElementById('deadline').value = response.deadline;
     document.getElementById('state').value = response.state;
+
+    document.getElementById('formButton').innerHTML = "Update item";
 
 })
 
