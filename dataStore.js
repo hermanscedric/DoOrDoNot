@@ -18,6 +18,13 @@ class DataStore extends Store {
     searchItem(name) {
         return this.items.find(item => item.name === name);
     }
+
+    updateItem(item) {
+        var newItems = this.items.filter(function(name) {
+            return name != item.name;
+        })
+        this.set('items', newItems);
+    }
 }
 
 module.exports = DataStore;
