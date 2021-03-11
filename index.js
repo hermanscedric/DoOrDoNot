@@ -23,10 +23,14 @@ form.addEventListener('submit', (event) => {
 
         ipcRenderer.send('addItem', JSON.stringify(newItem));
     } else {
-        event.target[0].value = "";
-        event.target[1].value = "";
-        event.target[2].value = "";
-        event.target[3].value = "";
+        let name = event.target[0].value;
+        let description = event.target[1].value;
+        let deadline = event.target[2].value;
+        let state = event.target[3].value;
+
+        let updatedItem = new Item(name, description, deadline, state);
+
+        ipcRenderer.send('updateItem', JSON.stringify(updatedItem));
 
         document.getElementById('formButton').innerHTML = "Add item";
     }

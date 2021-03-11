@@ -43,6 +43,12 @@ ipcMain.on('searchItem', (event, name) => {
     win.webContents.send('editItem', JSON.stringify(item))
 })
 
+ipcMain.on('updateItem', (event, updatedItem) => {
+    let updatedItemJSON = JSON.parse(updatedItem)
+    items.updateItem(updatedItemJSON)
+    win.webContents.send('items', JSON.stringify(items))
+})
+
 app.whenReady().then(createWindow)
 
 app.on('window-all-closed', () => {
