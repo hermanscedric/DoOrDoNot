@@ -32,6 +32,10 @@ form.addEventListener('submit', (event) => {
 
         ipcRenderer.send('updateItem', JSON.stringify(updatedItem));
 
+        event.target[0].value = "";
+        event.target[1].value = "";
+        event.target[2].value = "";
+        event.target[3].value = "";
         document.getElementById('formButton').innerHTML = "Add item";
     }
 })
