@@ -127,3 +127,6 @@ button {
     cursor: pointer;
 }
 
+#form #formCancelButton {
+    display: none;
+}
