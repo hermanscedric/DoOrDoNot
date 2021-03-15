@@ -9,7 +9,11 @@ var formButton = document.getElementById('formButton');
 var cancelButton = document.getElementById('formCancelButton');
 
 function editItem(name) {
-    ipcRenderer.send('searchItem', name);
+    ipcRenderer.send('editItem', name);
+}
+
+function deleteItem(name) {
+    ipcRenderer.send('deleteItem', name);
 }
 
 form.addEventListener('submit', (event) => {
@@ -77,7 +81,7 @@ ipcRenderer.on('items', (event, items) => {
         item.innerHTML += target +
             "<p id=\"header\">" +
             "<span><strong>" + response.items[i].name + "</strong></span>" +
-            "<button>Delete</button>" +
+            "<button onClick=\"deleteItem('" + response.items[i].name + "')\">Delete</button>" +
             "<button onClick=\"editItem('" + response.items[i].name + "')\">Edit</button>" +
             "</p>" +
             "<p class=\"description\">" + response.items[i].description + "</p>" +

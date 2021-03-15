@@ -15,7 +15,7 @@ class DataStore extends Store {
         this.set('items', this.items)
     }
 
-    searchItem(name) {
+    getItem(name) {
         return this.items.find(item => item.name === name);
     }
 
@@ -25,6 +25,12 @@ class DataStore extends Store {
         this.items[itemId].description = updatedItem.description;
         this.items[itemId].deadline = updatedItem.deadline;
         this.items[itemId].state = updatedItem.state;
+        this.set('items', this.items);
+    }
+
+    deleteItem(deletedItem) {
+        let itemId = this.items.findIndex(item => item.name === deletedItem.name)
+        this.items.splice(itemId, 1);
         this.set('items', this.items);
     }
 }

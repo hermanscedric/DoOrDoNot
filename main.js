@@ -38,14 +38,20 @@ ipcMain.on('addItem', (event, newItem) => {
     win.webContents.send('items', JSON.stringify(items))
 })
 
-ipcMain.on('searchItem', (event, name) => {
-    let item = items.searchItem(name)
+ipcMain.on('editItem', (event, name) => {
+    let item = items.getItem(name)
     win.webContents.send('editItem', JSON.stringify(item))
 })
 
 ipcMain.on('updateItem', (event, updatedItem) => {
     let updatedItemJSON = JSON.parse(updatedItem)
     items.updateItem(updatedItemJSON)
+    win.webContents.send('items', JSON.stringify(items))
+})
+
+ipcMain.on('deleteItem', (event, name) => {
+    let item = items.getItem(name)
+    items.deleteItem(item)
     win.webContents.send('items', JSON.stringify(items))
 })
 
