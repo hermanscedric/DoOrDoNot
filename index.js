@@ -6,7 +6,7 @@ var item = document.getElementById('item');
 var form = document.getElementById('itemForm');
 
 var formButton = document.getElementById('formButton');
-var cancelButton = document.getElementById('formCancelButton');
+var cancelButton = document.getElementById('cancelButton');
 
 function editItem(name) {
     ipcRenderer.send('editItem', name);
@@ -43,6 +43,7 @@ form.addEventListener('submit', (event) => {
         event.target[2].value = "";
         event.target[3].value = "";
         document.getElementById('formButton').innerHTML = "Add item";
+        document.getElementById('cancelButton').style.display = "none";
     }
 })
 
@@ -52,7 +53,7 @@ cancelButton.addEventListener('click', function() {
     document.getElementById('deadline').value = "";
     document.getElementById('state').value = "";
 
-    document.getElementById('formCancelButton').style.display = "none";    
+    document.getElementById('cancelButton').style.display = "none";    
 })
 
 ipcRenderer.on('editItem', (event, item) => {
@@ -63,7 +64,7 @@ ipcRenderer.on('editItem', (event, item) => {
     document.getElementById('state').value = response.state;
 
     document.getElementById('formButton').innerHTML = "Update item";
-    document.getElementById('formCancelButton').style.display = "block";
+    document.getElementById('cancelButton').style.display = "block";
 })
 
 ipcRenderer.on('items', (event, items) => {
