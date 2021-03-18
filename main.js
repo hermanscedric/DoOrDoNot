@@ -34,8 +34,13 @@ function createWindow() {
 
 ipcMain.on('addItem', (event, newItem) => {
     let newItemJSON = JSON.parse(newItem)
-    items.addItem(newItemJSON)
-    win.webContents.send('items', JSON.stringify(items))
+    let duplicatedName = items.checkForDuplication(newItemJSON)
+    if (duplicatedName) {
+        win.webContents.send('items', JSON.stringify(items), duplicatedName)
+    } else {
+        items.addItem(newItemJSON)
+        win.webContents.send('items', JSON.stringify(items), duplicatedName)
+    }
 })
 
 ipcMain.on('editItem', (event, name) => {

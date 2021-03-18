@@ -47,13 +47,13 @@ form.addEventListener('submit', (event) => {
     }
 })
 
-cancelButton.addEventListener('click', function() {
+cancelButton.addEventListener('click', function () {
     document.getElementById('name').value = "";
     document.getElementById('description').value = "";
     document.getElementById('deadline').value = "";
     document.getElementById('state').value = "";
 
-    document.getElementById('cancelButton').style.display = "none";    
+    document.getElementById('cancelButton').style.display = "none";
 })
 
 ipcRenderer.on('editItem', (event, item) => {
@@ -65,9 +65,16 @@ ipcRenderer.on('editItem', (event, item) => {
 
     document.getElementById('formButton').innerHTML = "Update item";
     document.getElementById('cancelButton').style.display = "block";
+    document.getElementById('alert').style.display = "none";
 })
 
-ipcRenderer.on('items', (event, items) => {
+ipcRenderer.on('items', (event, items, duplicatedName) => {
+    if (duplicatedName) {
+        document.getElementById('alert').style.display = "block";
+    } else {
+        document.getElementById('alert').style.display = "none";
+    }
+
     item.innerHTML = "";
     var response = JSON.parse(items);
     for (var i = 0; i < response.items.length; i++) {

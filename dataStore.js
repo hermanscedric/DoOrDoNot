@@ -33,6 +33,15 @@ class DataStore extends Store {
         this.items.splice(itemId, 1);
         this.set('items', this.items);
     }
+
+    checkForDuplication(newItem) {
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items[i].name === newItem.name) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 module.exports = DataStore;
