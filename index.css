@@ -127,6 +127,24 @@ button {
     cursor: pointer;
 }
 
-#form #formCancelButton {
+#form #cancelButton {
     display: none;
+}
+
+#form #alert {
+    padding: 5px;
+    padding-left: 10px;
+    background-color: #CE0000;
+    color: white;
+    margin-bottom: 10px;
+    display: none;
+}
+
+#form .closeAlert {
+    margin-left: 15px;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
 }
