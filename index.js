@@ -68,7 +68,7 @@ ipcRenderer.on('editItem', (event, item) => {
     document.getElementById('alert').style.display = "none";
 })
 
-ipcRenderer.on('items', (event, items, duplicatedName) => {
+ipcRenderer.on('items', (event, items, duplicatedName, addedItem) => {
     if (duplicatedName) {
         document.getElementById('alert').style.display = "block";
     } else {
@@ -98,5 +98,9 @@ ipcRenderer.on('items', (event, items, duplicatedName) => {
             "<span>Deadline: " + response.items[i].deadline + "</span>" +
             "<p class=\"state\">" + response.items[i].state + "</p>" +
             "</div>";
+    }
+    
+    if (addedItem) {
+        window.scrollTo(0, document.body.scrollHeight);
     }
 })

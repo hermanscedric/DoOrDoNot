@@ -39,7 +39,7 @@ ipcMain.on('addItem', (event, newItem) => {
         win.webContents.send('items', JSON.stringify(items), duplicatedName)
     } else {
         items.addItem(newItemJSON)
-        win.webContents.send('items', JSON.stringify(items), duplicatedName)
+        win.webContents.send('items', JSON.stringify(items), duplicatedName, true)
     }
 })
 
