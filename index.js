@@ -1,6 +1,8 @@
 const ipcRenderer = require('electron').ipcRenderer
 const Item = require('./item.js');
 
+//document.head.insertAdjacentHTML( 'beforeend', '<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">' );
+
 var item = document.getElementById('item');
 
 var form = document.getElementById('itemForm');
@@ -89,8 +91,8 @@ ipcRenderer.on('items', (event, items, duplicatedName, addedItem) => {
         item.innerHTML += target +
             "<p id=\"header\">" +
             "<span><strong>" + response.items[i].name + "</strong></span>" +
-            "<button onClick=\"deleteItem('" + response.items[i].name + "')\">Delete</button>" +
-            "<button onClick=\"editItem('" + response.items[i].name + "')\">Edit</button>" +
+            "<span class=\"closeAndEdit material-icons\" onClick=\"deleteItem('" + response.items[i].name + "')\">close</span>" +
+            "<span class=\"closeAndEdit material-icons\" onClick=\"editItem('" + response.items[i].name + "')\"> edit</span>" +
             "</p>" +
             "<p class=\"description\">" + response.items[i].description + "</p>" +
             "<p class=\"dates\">" +

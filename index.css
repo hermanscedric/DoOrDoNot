@@ -70,9 +70,10 @@ body {
     height: 20%;
 }
 
-button {
+.closeAndEdit {
     float: right;
     margin-top: 3px;
+    cursor: pointer;
 }
 
 .description {
