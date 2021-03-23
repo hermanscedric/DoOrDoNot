@@ -16,6 +16,14 @@ function editItem(name) {
 
 function deleteItem(name) {
     ipcRenderer.send('deleteItem', name);
+
+    document.getElementById('name').value = "";
+    document.getElementById('description').value = "";
+    document.getElementById('deadline').value = "";
+    document.getElementById('state').value = "";
+
+    document.getElementById('formButton').innerHTML = "Add item";
+    document.getElementById('cancelButton').style.display = "none";
 }
 
 form.addEventListener('submit', (event) => {
