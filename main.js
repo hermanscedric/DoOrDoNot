@@ -25,6 +25,7 @@ function createWindow() {
         }
     })
 
+    win.removeMenu()
     win.loadFile('index.html')
 
     win.on('ready-to-show', () => {
