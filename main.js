@@ -22,7 +22,8 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
             enableRemoteModule: true
-        }
+        },
+        icon: __dirname + '/assets/Icon.png'
     })
 
     win.removeMenu()
