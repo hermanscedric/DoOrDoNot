@@ -110,6 +110,22 @@ body {
     padding: 0 10%;
 }
 
+footer {
+    position: fixed;
+    background-color: navy;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    left: 55%;
+    bottom: 10px;
+    width: 35%;
+    padding: 10px 2.5%;
+ }
+
+ footer #developperName {
+    font-size: 12px;
+ }
+
 #form input, select {
     box-sizing: border-box;
     width: 100%;
