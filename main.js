@@ -21,9 +21,10 @@ function createWindow() {
         height: 600,
         webPreferences: {
             nodeIntegration: true,
+            contextIsolation: false,
             enableRemoteModule: true
         },
-        icon: __dirname + '/assets/Icon.png'
+        icon: __dirname + '/assets/icon_256.ico'
     })
 
     win.removeMenu()
